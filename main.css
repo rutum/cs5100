@@ -1,0 +1,124 @@
+/*A:link { color: #148ca5 }
+A:visited { color: #148ca5 }
+A:hover { color: #148ca5 }*/
+
+
+body,table,td,th,div {
+	font-family: helvetica,lucida,times;
+	font-size: 16px;
+	font-weight: normal;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	width:1000px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+ul,li {
+	font-family: helvetica,lucida,times;
+	font-size: 14px;
+	font-weight: normal;
+	margin-bottom: 10px
+}
+
+tr.title {
+	color: #ffffff;
+	font-size:20px;
+}
+
+.strong {
+	color:#148ca5
+}
+
+.title{
+	font-size: 20px;
+ 	font-weight: bold;
+ 	background-color: #148ca5;
+ 	color: #FFFFFF;
+ 	height:25px;
+ 	width:1000px;
+}
+
+.bold {
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #FFFFFF
+}
+
+.maintitle{
+	font-size: 28px;
+	font-weight: bold;
+	color: #148ca5;
+	text-align: left;
+}
+
+hr {
+	background-color: #999;
+ 	color: #999;
+ 	height:2px;
+ }
+
+a.nav {
+	color: #666;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+a.nav:hover {
+	color:#148ca5;
+}
+
+a {
+	color:#148ca5;
+	text-decoration: none;
+}
+
+
+#header {
+	text-align: center;
+	margin-bottom: 75px;
+}
+
+
+.toc {
+	display: block;
+	width: 200px;
+	margin: auto;
+	text-align: center;
+}
+
+.toc ul{
+	margin: 0;
+	padding: 0;
+
+}
+
+.toc li{
+	margin: 5px 0;
+	list-style: none;
+}
+
+.toc li a{
+	border-bottom: 1px solid lightgrey;
+	color: #666;
+}
+
+
+.toc a:hover {
+	color: #148ca5;
+	font-weight: bold;
+}
+
+.project_title {
+	text-align: center;
+}
+
+.attribution {
+	color: grey;
+	margin: 25px 25px;
+}
+
+.section-title {
+	text-align: center;
+	font-size: 2em;
+}

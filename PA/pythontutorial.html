@@ -2,14 +2,14 @@
     <head>
         <title>CS 5100 Python Basics</title>
         <link rel="shortcut icon" href="images/pacman-favicon.ico">
-        <link rel="stylesheet" href="main.css" type="text/css" charset="utf-8">
+        <link rel="stylesheet" href="../main.css" type="text/css" charset="utf-8">
         <!-- <link rel="stylesheet" href="css/navigation.css" type="text/css" charset="utf-8"> -->
     </head>
-    
+
     <body>
         <script src="js/navigation.js"></script>
         <div id="header">
-	        <img src="neu.png">
+	        <img src="../neu.png">
 	        <h1>CS5100: Foundations of Artificial Intelligence</h1>
 	        <h2>Northeastern University, Seattle</h2>
 	        <h3>Fall 2016 </h3>
@@ -134,7 +134,7 @@
 	                    <li><a href="#More References">More References</a></li>
 	                </ul>
                 </div>
-                
+
                 <h4>Required Files</h4>
                 <p>You can download all of the files associated with the Python mini-tutorial as a zip archive: <a href="https://s3-us-west-2.amazonaws.com/cs188websitecontent/projects/release/tutorial/v1/001/python_basics.zip">python_basics.zip</a>. If you did the unix tutorial in the previous tab, you've already downloaded and unzipped this file.</p>
                 <br>
@@ -178,11 +178,11 @@
                     <pre><code>Help on built-in function find:<br>
 find(...)
     S.find(sub [,start [,end]]) -&gt; int
-    
+
     Return the lowest index in S where substring sub is found,
     such that sub is contained within s[start,end].  Optional
     arguments start and end are interpreted as in slice notation.
-    
+
     Return -1 on failure.<br>
 </code></pre>
                     <p><code> &gt;&gt; s.find('b')<br> 1 </code></p>
@@ -250,7 +250,7 @@ reverse(...)
                 <h4><a name="Writing Scripts"></a>Writing Scripts</h4>
                 <p>Now that you've got a handle on using Python interactively, let's write a simple Python script that demonstrates Python's <code>for</code> loop. Open the file called <code>foreach.py</code> and update it with the following code:</p>
                 <div class="code_snippet">
-                    <pre># This is what a comment looks like 
+                    <pre># This is what a comment looks like
 fruits = ['apples','oranges','pears','bananas']
 for fruit in fruits:
     print fruit + ' for sale'
@@ -294,16 +294,16 @@ print oddNumsPlusOne
                 <h4><a name="Indentation"></a>Beware of Indendation!</h4>
                 <p>Unlike many other languages, Python uses the indentation in the source code for interpretation. So for instance, for the following script:</p>
                 <div class="code_snippet">
-                    <pre>if 0 == 1: 
-    print 'We are in a world of arithmetic pain' 
-print 'Thank you for playing' 
+                    <pre>if 0 == 1:
+    print 'We are in a world of arithmetic pain'
+print 'Thank you for playing'
 </pre>
                 </div>
                 <p>will output</p>
                 <div class="code_snippet"><code> Thank you for playing </code></div>
                 <p>But if we had written the script as</p>
                 <div class="code_snippet">
-                    <pre>if 0 == 1: 
+                    <pre>if 0 == 1:
     print 'We are in a world of arithmetic pain'
     print 'Thank you for playing'
 </pre>
@@ -327,9 +327,9 @@ def buyFruit(fruit, numPounds):
         print "That'll be %f please" % (cost)
 
 # Main Function
-if __name__ == '__main__':        
+if __name__ == '__main__':
     buyFruit('apples',2.4)
-    buyFruit('coconuts',2)        
+    buyFruit('coconuts',2)
 </pre>
                 </div>
                 <p>Rather than having a <code>main</code> function as in Java, the <code>__name__ == '__main__'</code> check is used to delimit expressions which are executed when the file is called as a script from the command line. The code after the main check is thus the same sort of code you would put in a <code>main</code> function in Java.</p>
@@ -350,15 +350,15 @@ if __name__ == '__main__':
     def __init__(self, name, fruitPrices):
         """
             name: Name of the fruit shop
-            
-            fruitPrices: Dictionary with keys as fruit 
-            strings and prices for values e.g. 
-            {'apples':2.00, 'oranges': 1.50, 'pears': 1.75} 
+
+            fruitPrices: Dictionary with keys as fruit
+            strings and prices for values e.g.
+            {'apples':2.00, 'oranges': 1.50, 'pears': 1.75}
         """
         self.fruitPrices = fruitPrices
         self.name = name
         print 'Welcome to the %s fruit shop' % (name)
-        
+
     def getCostPerPound(self, fruit):
         """
             fruit: Fruit string
@@ -369,20 +369,20 @@ if __name__ == '__main__':
             print "Sorry we don't have %s" % (fruit)
             return None
         return self.fruitPrices[fruit]
-        
+
     def getPriceOfOrder(self, orderList):
         """
             orderList: List of (fruit, numPounds) tuples
-            
-        Returns cost of orderList. If any of the fruit are  
-        """ 
-        totalCost = 0.0             
+
+        Returns cost of orderList. If any of the fruit are
+        """
+        totalCost = 0.0
         for fruit, numPounds in orderList:
             costPerPound = self.getCostPerPound(fruit)
             if costPerPound != None:
                 totalCost += numPounds * costPerPound
         return totalCost
-    
+
     def getName(self):
         return self.name
 </pre>
@@ -555,7 +555,7 @@ tutorialTestClasses.py
                 </ul>
                 <p>The command <code>python autograder.py</code> grades your solution to all three problems. If we run it before editing any files we get a page or two of output:</p>
                 <div class="code_snippet">
-                    <pre>[cs188-ta@nova ~/tutorial]$ python autograder.py 
+                    <pre>[cs188-ta@nova ~/tutorial]$ python autograder.py
 Starting on 1-21 at 23:39:51
 
 Question q1
@@ -691,7 +691,7 @@ Total: 1/3
                 </div>
                 <p>You now pass all tests, getting full marks for question 1. Notice the new lines "Passed a=..." which appear before "*** PASS: ...". These are produced by the print statement in <code>add</code>. You can use print statements like that to output information useful for debugging. You can also run the autograder with the option <code>--mute</code> to temporarily hide such lines, as follows:</p>
                 <div class="code_snippet">
-                    <pre>[cs188-ta@nova ~/tutorial]$ python autograder.py -q q1 --mute	
+                    <pre>[cs188-ta@nova ~/tutorial]$ python autograder.py -q q1 --mute
 Starting on 1-22 at 14:15:33
 
 Question q1
@@ -723,7 +723,7 @@ Question q1
                 <p>Run <code>python autograder.py</code> until question 3 passes all tests and you get full marks. Each test will confirm that <code>shopSmart(orders,shops)</code> returns the correct answer given various possible inputs. For example, with the following variable definitions:</p>
                 <div class="code_snippet">
                     <pre>orders1 = [('apples',1.0), ('oranges',3.0)]
-orders2 = [('apples',3.0)]       
+orders2 = [('apples',3.0)]
 dir1 = {'apples': 2.0, 'oranges':1.0}
 shop1 =  shop.FruitShop('shop1',dir1)
 dir2 = {'apples': 1.0, 'oranges': 5.0}

@@ -3,7 +3,7 @@ A:visited { color: #148ca5 }
 A:hover { color: #148ca5 }*/
 
 
-body,table,td,th,div {
+body,table,div {
 	font-family: helvetica,lucida,times;
 	font-size: 16px;
 	font-weight: normal;

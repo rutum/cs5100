@@ -1,0 +1,258 @@
+<html>
+<head>
+  <title>Logical Chatbot</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <style media="screen">
+  /*A:link { color: #148ca5 }
+  A:visited { color: #148ca5 }
+  A:hover { color: #148ca5 }*/
+
+
+  body,table,td,th,div {
+    font-family: helvetica,lucida,times;
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width:1000px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  ul,li {
+    font-family: helvetica,lucida,times;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 10px
+  }
+
+  tr.title {
+    color: #ffffff;
+    font-size:20px;
+  }
+
+  .strong {
+    color:#148ca5
+  }
+
+  .title{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #148ca5;
+    color: #FFFFFF;
+    height:25px;
+    width:1000px;
+  }
+
+  .bold {
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #FFFFFF
+  }
+
+  .maintitle{
+    font-size: 28px;
+    font-weight: bold;
+    color: #148ca5;
+    text-align: left;
+  }
+
+  hr {
+    background-color: #999;
+    color: #999;
+    height:2px;
+   }
+
+  a.nav {
+    color: #666;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  a.nav:hover {
+    color:#148ca5;
+  }
+
+  a {
+    color:#148ca5;
+    text-decoration: none;
+  }
+
+
+  #header {
+    text-align: center;
+    margin-bottom: 75px;
+  }
+
+
+  .toc {
+    display: block;
+    width: 200px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .toc ul{
+    margin: 0;
+    padding: 0;
+
+  }
+
+  .toc li{
+    margin: 5px 0;
+    list-style: none;
+  }
+
+  .toc li a{
+    border-bottom: 1px solid lightgrey;
+    color: #666;
+  }
+
+
+  .toc a:hover {
+    color: #148ca5;
+    font-weight: bold;
+  }
+
+  .project_title {
+    text-align: center;
+  }
+
+  .attribution {
+    color: grey;
+    margin: 25px 25px;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2em;
+  }
+
+  </style>
+</head>
+<body>
+
+<div id="header">
+  <img src="neu.png">
+  <h1>CS5100: Foundations of Artificial Intelligence</h1>
+  <h2>Northeastern University, Seattle</h2>
+  <h3>Fall 2016 </h3>
+</div>
+
+<div id="content">
+    <div class="project">
+      <h2 class="project_title">Project 2: Logical Chatbot</h2>
+    </div>
+
+    <hr>
+
+    <div class="project">
+
+      <h3><a name="Introduction"></a>Introduction</h3>
+      <p>In this project you will be building a chatbot for placing an order for "5100 Pizza Place". Your chatbot (refered to as PizzaBot from here on), will use a backend Knowledge Base that will check for missing constraints, and ask user for information to guide them through the process of ordering their pizza. </p>
+      <p>For this project you will need to install <a href="http://pyke.sourceforge.net/index.html"> Pyke</a> which is a Python based Knowledge Engine, inspired by Prolog. You will encode your knowledgebase in Pyke.
+        Once you download Pyke, please follow the instructions in the readme file to build and install it. You can confirm installation by running on of the examples from the following directory:
+        <pre>pyke/examples</pre>
+      </p>
+      <p><strong>Evaluation:</strong> You will be evaluated on the complexity of your system and complexity of your knowledgebase.</p>
+    </div>
+
+    <hr>
+
+    <div class="project">
+      <h3><a name="Welcome"></a>Welcome to PizzaBot</h3>
+      <p>After downloading the code (<code><a href="chatbot.zip">chatbot.zip</a></code>), unzipping it, and changing to the directory, you should be able to chat with PizzaBot by typing the following command:</p>
+      <pre>
+        python runchatbot.py
+      </pre>
+    </div>
+
+    <hr>
+
+    <div class="project">
+      <h3><a name="Q1"></a>Question 1 (10 points): Design the menu (facts)</h3>
+      <p>A pizza ordering bot needs to know all the menu items and components for ordering a pizza.
+        <ul>
+            <li> What are the types of crust available?
+            <li> What are the types of sauces available?
+            <li> What are the types of toppings available?
+            <li> Which toppings are vegetarian?
+            <li> What are the pizza sizes available?
+            <li> What is the price of custom pizzas?
+            <li> What is the price of premade pizzas?
+            <li> What are the types of premade pizzas?
+            <li> Which premade pizzas are vegetarian?
+        </ul>
+        For this part of your project you will mostly work with the following files:
+        <pre>
+            fact.kfb
+            Readme.txt
+        </pre>
+      </p>
+    </div>
+
+    <hr>
+
+    <div class="project">
+      <h3><a name="Q2"></a>Question 2 (10 points): Relationships between facts</h3>
+      <p>In order to place a pizza order, what types of dependencies need to be present between different facts?</p>
+      <ul>
+        <li> Can you decide toppings, without picking sauce first?
+        <li> Can you pick your sauce without picking the crust/base?
+        <li> What are the minimum relations that need to be satisfied in order to complete a pizza order?
+      </ul>
+      For this part of your project you will mostly work with the following files:
+        <pre>
+            relation.krb
+            Readme.txt
+        </pre>
+      You will be implementing this using forward chaining. Please mention in your readme file how your approach would change if you used backward chaining.
+    </div>
+    <hr>
+    <div class="project">
+      <h3><a name="Q3"></a>Question 3 (20 points): Asking Questions and Understanding Answers: KB to Text Mapping</h3>
+      <p>In order to place a pizza order, you will need to write rules that map knowledgebase facts into english language. This needs to be updated in the following files:
+        <pre>
+        kb2text.py
+        readme.txt
+      </pre></p>
+      How would you design your system to ask the relevant questions to the user? Remember, your questions will require answers from the users. These answers will provide assertions or true values to your knowledgebase facts. You can assume that the user will enter simplistic English. e.g.
+      <pre>
+        PizzaBot: Please pick your toppings: Onion, Tomato, Peppers
+        User: Onion Tomato
+        PizzaBot: Toppings selected
+        PizzaBot: Do you want extra cheese? Yes or No?
+        User: No
+      </pre>
+      Notice that at each turn, PizzaBot is guiding the user regarding what answer it is expecting from the user. You will need to build your own simplistic English based on your fact based knowledgebase. You will also need to assert facts dynamically based on what the user enters/selects for their order. You will need to get familiar with <a href="http://pyke.sourceforge.net/using_pyke/index.html"> Pyke Documentation </a> to understand how to dynamically assert facts.
+    </div>
+
+    <hr>
+
+    <div class="project">
+      <h3><a name="Q4"></a>Question 4 (5 point): Adding a new Topping</h3>
+      <p>There is a new topping "CoolTopping" that is now offered by your pizzeria. How hard would it be to include it in PizzaBot so that people can order this new topping using PizzaBot?. Update your code to now work with "CoolTopping"</p>
+      <ul>
+         <li> Which files will you have to change?
+         <li> Desribe your approach in your readme file
+      </ul>
+    </div>
+
+    <hr>
+
+    <div class="project">
+      <h3><a name="Q5"></a>Question 5 (5 points): Adding a new menu Item</h3>
+      <p>Winter is coming, and people are prefering soup to pizza. Your pizzeria now serves 3 different flavors of soup. How would you integrate this new information into PizzaBot?
+      <ul>
+         <li> Which files will you have to change?
+         <li> Desribe your approach in your readme file
+      </ul>
+    </div>
+
+    <hr>
+
+    <h3>Submission</h3>
+    <p>You're not done yet! Follow your instructor's guidelines to receive credit on your project!</p>
+  </div>
+</body>
+</html>

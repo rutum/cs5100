@@ -5,11 +5,11 @@ A:hover { color: #148ca5 }*/
 
 body,table,div {
 	font-family: helvetica,lucida,times;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: normal;
 	margin-top: 0px;
 	margin-bottom: 0px;
-	width:1000px;
+	width:950px;
 	margin-right: auto;
 	margin-left: auto;
 }

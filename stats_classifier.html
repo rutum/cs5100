@@ -1,0 +1,238 @@
+<html>
+<head>
+  <title>Project 3</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <style media="screen">
+  /*A:link { color: #148ca5 }
+  A:visited { color: #148ca5 }
+  A:hover { color: #148ca5 }*/
+
+
+  body,table,td,th,div {
+    font-family: helvetica,lucida,times;
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width:1000px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  ul,li {
+    font-family: helvetica,lucida,times;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 10px
+  }
+
+  tr.title {
+    color: #ffffff;
+    font-size:20px;
+  }
+
+  .strong {
+    color:#148ca5
+  }
+
+  .title{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #148ca5;
+    color: #FFFFFF;
+    height:25px;
+    width:1000px;
+  }
+
+  .bold {
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #FFFFFF
+  }
+
+  .maintitle{
+    font-size: 28px;
+    font-weight: bold;
+    color: #148ca5;
+    text-align: left;
+  }
+
+  hr {
+    background-color: #999;
+    color: #999;
+    height:2px;
+   }
+
+  a.nav {
+    color: #666;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  a.nav:hover {
+    color:#148ca5;
+  }
+
+  a {
+    color:#148ca5;
+    text-decoration: none;
+  }
+
+
+  #header {
+    text-align: center;
+    margin-bottom: 75px;
+  }
+
+
+  .toc {
+    display: block;
+    width: 200px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .toc ul{
+    margin: 0;
+    padding: 0;
+
+  }
+
+  .toc li{
+    margin: 5px 0;
+    list-style: none;
+  }
+
+  .toc li a{
+    border-bottom: 1px solid lightgrey;
+    color: #666;
+  }
+
+
+  .toc a:hover {
+    color: #148ca5;
+    font-weight: bold;
+  }
+
+  .project_title {
+    text-align: center;
+  }
+
+  .attribution {
+    color: grey;
+    margin: 25px 25px;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2em;
+  }
+
+  </style>
+</head>
+<body>
+
+<div id="header">
+  <!-- <img src="neu.png"> -->
+  <br>
+  <h1>CS5100: Foundations of Artificial Intelligence</h1>
+  <h2>Northeastern University, Seattle</h2>
+  <h3>Fall 2016 </h3>
+</div>
+
+<div id="content">
+      <h2 class="project_title">Project 3</h2>
+
+    <hr>
+
+    <div class="project">
+
+      <h3><a name="Introduction"></a>Introduction</h3>
+      <p>In this project you will be building a Naive Bayes Classifier to classify a list of tweets by Hillary Clinton and Donald Trump. The input data can be downloaded from <a href="https://www.kaggle.com/benhamner/clinton-trump-tweets/version/1">here</a>.
+      </p>
+      <p><strong> Note: </strong> Submit your projects through email to Katie (cc the professor) with the subject: "firstName lastName, Project3". The attached zip file should be titled: "firstLastProject3". Points will be deducted if this is not followed.</p>
+      <p><b> Project Due: December 11th 2016 at Midnight</b></p>
+    </div>
+
+    <hr>
+
+    <div class="project">
+      <h3><a name="Welcome"></a>Naive Bayes Classifier</h3>
+      <p>Naive Bayes is based on the Bayes Theorem: <br>
+    <pre>
+        P(A | B) = P(B | A) * P(A)
+                   ---------------
+                        P(B)
+    </pre>
+    In this project, you will be building a Naive Bayes Classifier that is capable of doing document classification. Converting the Bayes Theorem into our classifier, we get:<br>
+    <pre>
+    P(Class | Feature) = P(Feature | Class) * P(Class)
+                         ----------------------------
+                                 P(Feature)
+    </pre>
+    Naive Bayes makes a simplifying or "naive" assumption that the features are not dependent on each other. This assumption means that feature1 , feature2 .. featuren are all independent of each other. Using this independence criteria we get: <br>
+    <br>
+    <pre>
+    p(Class | feature1, feature2, feature3...featuren) =
+
+        p(feature1 | Class) * p(feature2 | Class) ... p(featuren | Class) * p(Class)
+        ---------------------------------------------------------------------------
+                    (p(feature1) * p(feature2)..p(featuren))
+</pre>
+
+    <hr>
+
+    <div class="project">
+      <h3><a name="Q1"></a>Question 1 (10 points): Design and code a Naive Bayes classifier</h3>
+
+        </p>
+     <h3> Functions to develop:</h3>
+     <p><b> read_data():</b> <br>
+        This function will be responsible for reading an input file in csv format. <br>
+        <br>
+        <b>cleanup()</b><br>
+        This function will be responsible for cleaning up the input data. This cleanup includes removal of special characters, stop words and performing normalization on the input text data. It will also be responsible for converting the textual data into features. For this exercise we will use <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">Bag Of Words based features</a>.  </p>
+
+     <p><b>train()</b><br>
+        This function will compute the following probabilities:<br>
+        <ul>
+        <li>p(class1), p(class2) ... p(classn): This represents the distribution of each class in your dataset, and the probability of seeing the data from each class.
+        <li>p(feature1|class1): Given class1, what is the probability of seeing feature1 in this class? It is important to identify what you consider as a feature. Is your feature a single word, bigrams (2 words), or trigrams (3words)? For this project it is acceptable to consider unigram features (each feature is one word)<br>
+        <li>p(feature1), p(feature2)...p(featuren): The individual probability of each feature.
+        <li>p(feature1|feature2): What is the probability that you would see feature1 given feature2? Do you really need to compute this? Do not compute it if you do not need this value.
+        </ul>
+        <b>Note:</b> Please make sure that you use numpy arrays to store your feature probability values. Also make sure that your representations are consistent with the input values required by <a href="http://scikit-learn.org/stable/modules/naive_bayes.html">Scikit-learn's Naive Bayes Implementation</a>
+     </p>
+
+     <p><b>evaluation():</b><br> This function will compute the overall accuracy and the per class accuracy of your classifier. We require the following metrics for accuracy computation:
+    </p>
+     <p><b>predict():</b><br>Given an input string, this function will return the list of classes it might belong to with decreasing probability.<br>
+    </div>
+
+    <hr>
+
+    <div class="project">
+      <h3><a name="Q2"></a>Question 2 (5 point): </h3>
+       Use Scikitlearn (python module), and run the dataset through the naive bayes and decision tree library. Which library does better - yours or sklearn? Any thoughts on why?
+
+    <hr>
+        <p>
+            <b>Useful References:</b>
+            <ul>
+                <li> http://blog.yhat.com/posts/naive-bayes-in-python.html<br>
+                <li> https://www.analyticsvidhya.com/blog/2015/09/naive-bayes-explained/
+                <li> https://alexn.org/blog/2012/02/09/howto-build-naive-bayes-classifier.html
+                <li> http://sebastianraschka.com/Articles/2014_naive_bayes_1.html
+                <li> http://www.thoughtly.co/blog/naive-bayes-classifier/
+                <li> http://guidetodatamining.com/chapter6/
+                <li> http://www.python-course.eu/text_classification_python.php
+                <li> http://rutumulkar.com/blog/2014/all-about-that-bayes-intro-to-probability
+            </ul>
+        </p>
+        <hr>
+    <h3>Submission</h3>
+    <p>You're not done yet! Follow your instructor's guidelines to receive credit on your project!</p>
+  </div>
+
+</body>
+</html>

@@ -205,6 +205,16 @@
      </p>
 
      <p><b>evaluation():</b><br> This function will compute the overall accuracy and the per class accuracy of your classifier. We require the following metrics for accuracy computation:
+        <pre>
+            Per class values for Precision, Recall, F1-score
+        </pre>
+        <p>
+        Precision - Out of all the answers by the classifier, which ones are correct? <br>
+        Recall - Out of all the actual correct answers, which ones are returned by the classifier? <br>
+        F1-Score - 2 * precision * reecall / (precision + recall)
+        <br><br>
+        hint: You can cross check your output by using <a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html">classification_report</a> module in scikit-learn
+    </p>
     </p>
      <p><b>predict():</b><br>Given an input string, this function will return the list of classes it might belong to with decreasing probability.<br>
     </div>
